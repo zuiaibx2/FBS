@@ -1,0 +1,211 @@
+package nc.ui.export.file.extract; 
+
+import nc.bs.framework.common.NCLocator;
+import nc.itf.export.file.IFbsDataFileService;
+import nc.pub.Constants;
+import nc.ui.pub.ClientEnvironment;
+import nc.ui.trade.manage.BillManageUI;
+import nc.vo.Export.FbsDataFileItemVO;
+import nc.vo.Export.FbsDatafileVO;
+import nc.vo.Export.time.FbsExportTimeVO;
+import nc.vo.hr.iufo.func.Global;
+import nc.vo.pub.BusinessException;
+import nc.vo.pub.lang.UFBoolean;
+import nc.vo.pub.lang.UFDateTime;
+
+/**
+ * @ClassName: WSSendDataUtil
+ * <b> webservice传输数据工具类 </b>
+ * <p>
+ *     在此处添加此类的描述信息
+ * </p>
+ * 创建日期: 2016年11月7日 上午11:54:33
+ * @Author 王凯强
+ * @Version 
+ */
+public class WSSendDataUtil {
+	BillManageUI sendUI;
+
+	public WSSendDataUtil(BillManageUI billUI) {
+		this.sendUI = billUI;
+	}
+
+	/**
+	 * @Title: doSendData
+	 * @Description: 数据传输入口
+	 * @Author: 王凯强
+	 * @Time: 2016年11月7日 下午2:32:56
+	 * @param lastTime
+	 * @param thisTime
+	 * @throws Exception 
+	 */
+	public void doSendData(String lastTime, String nowtime) throws BusinessException{
+		try {
+			// 获取数据并且保存到db中
+			FbsDataFileItemVO[] bvos = sendData(lastTime);
+			
+			//抽取（传输）文件时间
+			FbsExportTimeVO[] timeVO = new ExportDBUtil(sendUI).getExtTime(nowtime, lastTime);
+			
+			//保存日志
+			IFbsDataFileService ifdfService = (IFbsDataFileService) NCLocator.getInstance().lookup(IFbsDataFileService.class.getName());
+			ifdfService.saveLogVO(getDataFileVO(lastTime, nowtime), bvos, timeVO);
+			
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			throw(e);
+		}
+	}
+	
+	private FbsDatafileVO getDataFileVO(String lastTime, String nowtime){
+		FbsDatafileVO dataFileVO = new FbsDatafileVO();
+		dataFileVO.setOperator(ClientEnvironment.getInstance().getUser().getPrimaryKey());// 默认当前登陆人
+		dataFileVO.setPk_corp(Global.getCorp());// 默认当前登陆公司
+		dataFileVO.setOperate_time(new UFDateTime(nowtime));// 操作时间
+		dataFileVO.setIssuccess(UFBoolean.TRUE);
+		dataFileVO.setIsall(lastTime==null?UFBoolean.TRUE:UFBoolean.FALSE);
+		dataFileVO.setIsspike(lastTime!=null?UFBoolean.TRUE:UFBoolean.FALSE);
+		
+		dataFileVO.setVbillstatus(Integer.valueOf(8));// 抽取数据结束时间
+		
+		dataFileVO.setVmemo(Constants.OPT_TYPE_SEND);
+		return dataFileVO;
+	}
+	
+	public FbsDataFileItemVO[] sendData(String lasttime) throws BusinessException {
+	
+//		StringBuffer whereBuffer = new StringBuffer(" 1=1 ");
+//		
+//		if (lasttime != null) {// 增量
+//			whereBuffer.append(" and ts_m > '" + lasttime + "'");
+//		}
+//		String whereStr = whereBuffer.toString();
+//
+//		// step3.根据查询条件查询本地28张表数据
+//		List<FbsDataFileItemVO> logvos = new ArrayList<FbsDataFileItemVO>();
+//		int index = 0;
+//		
+//		ISendDataService sendService = (ISendDataService) NCLocator.getInstance().lookup(ISendDataService.class.getName());
+//		
+//		/************************************ 1.部门档案 ************************************/
+//		ProcessLine.addSendProcess("部门档案");
+//		index += sendService.doSend(Bd_deptdocVO.class, whereStr, logvos, "部门档案");
+//
+//		/************************************ 2.岗位基本信息 ************************************/
+//		ProcessLine.addSendProcess("岗位基本信息");
+//		index += sendService.doSend(Om_jobVO.class, whereStr, logvos, "岗位基本信息");
+//
+//		/************************************ 3.职务基本信息 ************************************/
+//		ProcessLine.addSendProcess("职务基本信息");
+//		index += sendService.doSend(OmDutyVo.class, whereStr, logvos, "职务基本信息");
+//		
+//		/************************************ 4.单位编制信息 ************************************/
+//		ProcessLine.addSendProcess("单位编制信息");
+//		index += sendService.doSend(Om_corp_workoutVO.class, whereStr, logvos, "单位编制信息");
+//
+//		/************************************ 5.单位编制子表 ************************************/
+//		ProcessLine.addSendProcess("单位编制子表");
+//		index += sendService.doSend(Om_corp_workout_bVO.class, whereStr, logvos, "单位编制子表");
+//		
+//		/************************************ 6.部门编制信息 ************************************/
+//		ProcessLine.addSendProcess("部门编制信息");
+//		index += sendService.doSend(Om_dept_workoutVO.class, whereStr, logvos, "部门编制信息");
+//		
+//		/************************************ 7.岗位编制信息 ************************************/
+//		ProcessLine.addSendProcess("岗位编制信息");
+//		index += sendService.doSend(Om_job_workoutVO.class, whereStr, logvos, "岗位编制信息");
+//		
+//		/************************************ 8.人员基本信息 ************************************/
+//		ProcessLine.addSendProcess("人员基本信息");
+//		index += sendService.doSend(Bd_psnbasdocVO.class, whereStr, logvos, "人员基本信息");
+//		
+//		/************************************ 9.员工工作信息 ************************************/
+//		ProcessLine.addSendProcess("员工工作信息");
+//		index += sendService.doSend(Bd_psndocVO.class, whereStr, logvos, "员工工作信息");
+//
+//		/************************************ 10.员工任职信息 ************************************/
+//		ProcessLine.addSendProcess("员工任职信息");
+//		index += sendService.doSend(Hi_psndoc_deptchgVO.class, whereStr, logvos, "员工任职信息");
+//
+//		/************************************ 11.政治面貌信息 ************************************/
+//		ProcessLine.addSendProcess("政治面貌信息");
+//		index += sendService.doSend(Hi_psndoc_partylogVO.class, whereStr, logvos, "政治面貌信息");
+//
+//		/************************************ 12.学历学位信息 ************************************/
+//		ProcessLine.addSendProcess("学历学位信息");
+//		index += sendService.doSend(Hi_psndoc_eduVO.class, whereStr, logvos, "学历学位信息");
+//		
+//		/************************************ 13.家庭成员海外背景信息 ************************************/
+//		ProcessLine.addSendProcess("家庭成员海外背景信息");
+//		index += sendService.doSend(Hi_psndoc_grpdef14VO.class, whereStr, logvos, "家庭成员海外背景信息");
+//
+//		/************************************ 14.员工工作履历信息 ************************************/
+//		ProcessLine.addSendProcess("员工工作履历信息");
+//		index += sendService.doSend(Hi_psndoc_workVO.class, whereStr, logvos, "员工工作履历信息");
+//
+//		/************************************ 15.员工涉外经历信息 ************************************/
+//		ProcessLine.addSendProcess("员工涉外经历信息");
+//		index += sendService.doSend(Hi_psndoc_abroadVO.class, whereStr, logvos, "员工涉外经历信息");
+//
+//		/************************************ 16.员工奖励信息 ************************************/
+//		ProcessLine.addSendProcess("员工奖励信息");
+//		index += sendService.doSend(Hi_psndoc_encVO.class, whereStr, logvos, "员工奖励信息");
+//
+//		/************************************ 17.员工惩处信息 ************************************/
+//		ProcessLine.addSendProcess("员工惩处信息");
+//		index += sendService.doSend(Hi_psndoc_punVO.class, whereStr, logvos, "员工惩处信息");
+//
+//		/************************************ 18.员工培训信息 ************************************/
+//		ProcessLine.addSendProcess("员工培训信息");
+//		index += sendService.doSend(Hi_psndoc_trainingVO.class, whereStr, logvos, "员工培训信息");
+//
+//		/************************************ 19.专业技术职务 ************************************/
+//		ProcessLine.addSendProcess("专业技术职务");
+//		index += sendService.doSend(Hi_psndoc_spetechVO.class, whereStr, logvos, "专业技术职务");
+//
+//		/************************************ 20.工人技术等级 ************************************/
+//		ProcessLine.addSendProcess("工人技术等级");
+//		index += sendService.doSend(Hi_psndoc_techrankVO.class, whereStr, logvos, "工人技术等级");
+//
+//		/************************************ 21.知识产权信息 ************************************/
+//		ProcessLine.addSendProcess("知识产权信息");
+//		index += sendService.doSend(Hi_psndoc_grpdef11VO.class, whereStr, logvos, "知识产权信息");
+//		
+//		/************************************ 22.员工离职信息 ************************************/
+//		ProcessLine.addSendProcess("员工离职信息");
+//		index += sendService.doSend(Hi_psndoc_dimissionVO.class, whereStr, logvos, "员工离职信息");
+//
+//		/************************************ 23.干部信息主集-干部分类信息 ************************************/
+//		ProcessLine.addSendProcess("干部信息主集-干部分类信息");
+//		index += sendService.doSend(Hrldm_ldpsn_infoVO.class, whereStr, logvos, "干部信息主集-干部分类信息");
+//
+//		/************************************ 24.领导人员职务信息子集 ************************************/
+//		ProcessLine.addSendProcess("领导人员职务信息子集");
+//		index += sendService.doSend(Hrldm_psndoc_dutyVO.class, whereStr, logvos, "领导人员职务信息子集");
+//		
+//		/************************************ 25.后备干部信息子集 ************************************/
+//		ProcessLine.addSendProcess("后备干部信息子集");
+//		index += sendService.doSend(Hrldm_train_planVO.class, whereStr, logvos, "后备干部信息子集");
+//
+//		/************************************ 26.专业人才管理-院士专家信息维护 ************************************/
+//		ProcessLine.addSendProcess("专业人才管理-院士专家信息维护");
+//		index += sendService.doSend(Hr_expertVO.class, whereStr, logvos, "专业人才管理-院士专家信息维护");
+//
+//		/************************************ 27.院士专家子集－聘期管理 ************************************/
+//		ProcessLine.addSendProcess("院士专家子集－聘期管理");
+//		index += sendService.doSend(Expert_termVO.class, whereStr, logvos, "院士专家子集－聘期管理");
+//		
+//		/************************************ 9.薪酬管理-发放总额 ************************************/
+//		ProcessLine.addSendProcess("薪酬管理-发放总额");
+//		index += sendService.doSend(Wa_dataVO.class, whereStr, logvos, "薪酬管理-发放总额");
+//		
+//		if(index==0){
+//			throw new BusinessException("没有获取到符合条件的数据,请检查确认！");
+//		}
+//
+//		return logvos.toArray(new FbsDataFileItemVO[logvos.size()]);
+		return null;
+	}
+	
+	
+}

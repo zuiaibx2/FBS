@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/pub/fbs/btn"
+   committed-rev="3"
+   kind="dir"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="FbsButton.java"
+   checksum="4d3b4c27771bd032ca0467fe1c30e6c6"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="FbsButtonVO.java"
+   checksum="febe4159a260e11e50f85254840c5bd6"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+</wc-entries>

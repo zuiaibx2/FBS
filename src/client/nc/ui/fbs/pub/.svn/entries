@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/client/nc/ui/fbs/pub"
+   committed-rev="7"
+   kind="dir"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="BaseBusinessDelegator.java"
+   checksum="63e8644f8d30c61bfaf8e61b8056ac64"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="DataNotNullValidate.java"
+   checksum="b10ea61437e5999d18ab6630676166da"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="FBSAbstractCTR.java"
+   checksum="cfbed2cdaeba4fc68d641e3100292f58"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="FBSAbstractEventHandler.java"
+   checksum="ee0bc76b76619e3efb6918e763a69773"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="FBSAbstractSingleCTR.java"
+   checksum="6e4feaffe7010d60ba213e0c521fcb4e"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="FBSAbstractUI.java"
+   checksum="1aa445533f8dd5bbc7fc8a62a5a15111"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="FBSMultiChildAbstractUI.java"
+   checksum="a7c2db5bb50c824d9572b4e19cd01fd2"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+</wc-entries>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://192.168.1.2/svn/fbs"
+   name=""
+   revision="53"
+   last-author="xgd"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/vo/spike/bd"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   committed-rev="43"
+   kind="dir"
+   committed-date="2016-11-29T07:51:29.868715Z"/>
+<entry
+   name="Bd_deptdocVO.java"
+   checksum="1b358c4a87b7b3fd42114af2469e5fa0"
+   last-author="wkq"
+   committed-rev="3"
+   text-time="2016-11-16T09:44:20.869000Z"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Bd_psnbasdocVO.java"
+   checksum="61be2312da8a6f16bc3a26b8cd66fc65"
+   last-author="wkq"
+   committed-rev="3"
+   text-time="2016-11-16T09:44:20.869000Z"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Bd_psndocVO.java"
+   checksum="45d843e5c76877d1520a59b279c7be53"
+   last-author="xgd"
+   committed-rev="43"
+   text-time="2016-11-29T06:58:26.012000Z"
+   kind="file"
+   committed-date="2016-11-29T07:51:29.868000Z"/>
+</wc-entries>

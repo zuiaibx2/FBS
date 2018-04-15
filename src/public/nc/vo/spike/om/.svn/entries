@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/vo/spike/om"
+   committed-rev="3"
+   kind="dir"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="OmDutyVo.java"
+   checksum="7917ea17362a594fec8e38186f692054"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Om_corp_workoutVO.java"
+   checksum="25b166d98627354f19166c45fd1a743e"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Om_corp_workout_bVO.java"
+   checksum="0f991d25893ad296e7f73fab2be7deb3"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Om_dept_workoutVO.java"
+   checksum="ec3a4de4d77bc35865d7ccee230d5b0d"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Om_jobVO.java"
+   checksum="da088bfd422ebd0c520e6f61a9be5007"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Om_job_workoutVO.java"
+   checksum="edacdb039f761d775cd8ceb6300473e9"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+</wc-entries>

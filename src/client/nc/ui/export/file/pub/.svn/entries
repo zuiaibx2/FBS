@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/client/nc/ui/export/file/pub"
+   committed-rev="7"
+   kind="dir"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="AntZipUtil.java"
+   checksum="c8eda2b0de3b4121a71fd3a8cd9eedc8"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="FileUtil.java"
+   checksum="ad16c7fafe0a52b743ec32869faf3113"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+</wc-entries>

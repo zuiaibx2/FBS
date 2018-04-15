@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="xgd"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/client/nc/ui/export/file"
+   committed-rev="52"
+   kind="dir"
+   committed-date="2016-12-14T02:02:28.149822Z"/>
+<entry
+   name="ExtDataDialog.java"
+   checksum="d5dab43b5efc59a1150795711eb7dfdf"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="extract"
+   kind="dir"/>
+<entry
+   name="pub"
+   kind="dir"/>
+</wc-entries>

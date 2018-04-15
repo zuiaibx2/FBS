@@ -1,0 +1,151 @@
+package nc.pub.fbs.btn;
+
+import nc.ui.trade.base.IBillOperate;
+import nc.vo.trade.button.ButtonVO;
+
+public class FbsButtonVO {
+
+	/**
+	 * @param id
+	 * @param code
+	 * @param name
+	 * @return
+	 */
+	public static ButtonVO createButtonVO(int id, String code, String name) {
+		nc.vo.trade.button.ButtonVO btn = new nc.vo.trade.button.ButtonVO();
+		btn.setBtnNo(id);// 按钮id
+		btn.setBtnName(name);// 按钮的名字
+		btn.setHintStr(name);// 悬停的名字
+		btn.setBtnCode(code);// 设置code
+		btn.setBtnChinaName(name);// 中文的名字
+		return btn;
+	}
+	/**
+	 * 导出Excel数据
+	 * 
+	 * @return btnVO
+	 */
+	public ButtonVO getExcelExpVO() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.excel_dc);
+		btnVO.setBtnCode(FbsButton.EXCEL_DC_CODE);
+		btnVO.setBtnName(FbsButton.EXCEL_DC_NAME);
+		btnVO.setOperateStatus(new int[] { IBillOperate.OP_INIT,
+				IBillOperate.OP_ALL });
+		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });
+		return btnVO;
+	}
+	
+	/**
+	 * 上传分布式增量数据
+	 * 
+	 * @return btnVO
+	 */
+	public ButtonVO getDataFileVo() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.DATAFILE_NO);
+		btnVO.setBtnCode(FbsButton.DATAFILE_CODE);
+		btnVO.setBtnName(FbsButton.DATAFILE_NAME);
+		btnVO.setOperateStatus(new int[] {IBillOperate.OP_NOTEDIT,IBillOperate.OP_INIT,IBillOperate.OP_NOADD_NOTEDIT});
+		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });
+		return btnVO;
+	}
+	
+	/**
+	 * 上传分布式全量数据
+	 * 
+	 * @return btnVO
+	 */
+	public ButtonVO getALLDataFileVo() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.ALLDATAFILE_NO);
+		btnVO.setBtnCode(FbsButton.ALLDATAFILE_CODE);
+		btnVO.setBtnName(FbsButton.ALLDATAFILE_NAME);
+		btnVO.setOperateStatus(new int[] {IBillOperate.OP_NOTEDIT,IBillOperate.OP_INIT,IBillOperate.OP_NOADD_NOTEDIT});
+		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });
+		
+		return btnVO;
+	}
+	
+	/**
+	 * 上传分布式传送数据
+	 * 
+	 * @return btnVO
+	 */
+	public ButtonVO getSendDataBtn() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.SENDDATA_NO);
+		btnVO.setBtnCode(FbsButton.SENDDATA_CODE);
+		btnVO.setBtnName(FbsButton.SENDDATA_NAME);
+		btnVO.setOperateStatus(new int[] {IBillOperate.OP_NOTEDIT,IBillOperate.OP_INIT,IBillOperate.OP_NOADD_NOTEDIT});
+		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });
+		return btnVO;
+	}
+	
+	/**
+	 * 网络不通抽取照片
+	 * 
+	 * @return btnVO
+	 */
+	public ButtonVO getDataFilePhotoBtn() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.DATAFILE_PHOTO_NO);
+		btnVO.setBtnCode(FbsButton.DATAFILE_PHOTO_CODE);
+		btnVO.setBtnName(FbsButton.DATAFILE_PHOTO_NAME);
+		btnVO.setOperateStatus(new int[] {IBillOperate.OP_NOTEDIT,IBillOperate.OP_INIT,IBillOperate.OP_NOADD_NOTEDIT});
+		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });
+		return btnVO;
+	}
+	
+	/**
+	 * @Title: getDataFileInBtn
+	 * @Description: 业务数据迁移数据导入
+	 * @return
+	 */
+	public ButtonVO getImportBtn() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.IMPORT_NO);
+		btnVO.setBtnCode(FbsButton.IMPORT_CODE);
+		btnVO.setBtnName(FbsButton.IMPORT_NAME);
+		btnVO.setOperateStatus(new int[] {IBillOperate.OP_NOTEDIT,IBillOperate.OP_INIT,IBillOperate.OP_NOADD_NOTEDIT});
+		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });
+		return btnVO;
+	}
+	
+	/**
+	 * @Title: getEXPORTVO
+	 * @Description: 业务数据迁移导出数据
+	 * @return
+	 */
+	public ButtonVO getEexporTVO() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.EXPORT_NO);
+		btnVO.setBtnCode(FbsButton.EXPORT_CODE);
+		btnVO.setBtnName(FbsButton.EXPORT_NAME);
+		btnVO.setOperateStatus(new int[] {IBillOperate.OP_NOTEDIT,IBillOperate.OP_INIT,IBillOperate.OP_NOADD_NOTEDIT});
+		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });		
+		return btnVO;
+	}
+	
+	public ButtonVO getNetOKBtn() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.NETOK_NO);
+		btnVO.setBtnCode(FbsButton.NETOK_CODE);
+		btnVO.setBtnName(FbsButton.NETOK_NAME);
+//		btnVO.setOperateStatus(new int[] {IBillOperate.OP_NOTEDIT,IBillOperate.OP_INIT,IBillOperate.OP_NOADD_NOTEDIT});
+//		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });
+		btnVO.setChildAry(new int[]{FbsButton.SENDDATA_NO, FbsButton.DATAFILE_PHOTO_NO});
+		return btnVO;
+	}
+	public ButtonVO getNetErrBtn() {
+		ButtonVO btnVO = new ButtonVO();
+		btnVO.setBtnNo(FbsButton.NETERROR_NO);
+		btnVO.setBtnCode(FbsButton.NETERROR_CODE);
+		btnVO.setBtnName(FbsButton.NETERROR_NAME);
+//		btnVO.setOperateStatus(new int[] {IBillOperate.OP_NOTEDIT,IBillOperate.OP_INIT,IBillOperate.OP_NOADD_NOTEDIT});
+//		btnVO.setBusinessStatus(new int[] { nc.vo.trade.pub.IBillStatus.FREE });
+		btnVO.setChildAry(new int[]{FbsButton.DATAFILE_NO,FbsButton.ALLDATAFILE_NO});
+		return btnVO;
+	}
+
+}

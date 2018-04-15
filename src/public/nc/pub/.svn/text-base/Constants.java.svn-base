@@ -1,0 +1,45 @@
+package nc.pub; 
+
+public class Constants {
+	/**
+	 * @field: DATA_ZIP_EXTNAME
+	 * @Discription: db文件扩展名称
+	 */
+	public static final String DATA_ZIP_EXTNAME = ".dsbtd";
+	
+	/**
+	 * @field: SEP
+	 * @Discription: sep代表'/'
+	 */
+	public static String SEP = java.io.File.separator;
+	
+	/**
+	 * @field: PHOTO_EXTNAME
+	 * @Discription: 照片扩展名
+	 */
+	public static final String PHOTO_EXTNAME = ".jpg";
+	
+	/**
+	 * @field: PHOTO_ZIP_EXTNAME
+	 * @Discription: 照片压缩文件扩展名
+	 */
+	public static final String PHOTO_ZIP_EXTNAME = ".photos";
+	
+	/**
+	 * @field: OPT_TYPE_DATA
+	 * @Discription: 操作类型抽取数据
+	 */
+	public static final String OPT_TYPE_DATA = "抽取数据";
+	
+	/**
+	 * @field: OPT_TYPE_PHOTO
+	 * @Discription: 操作类型抽取照片
+	 */
+	public static final String OPT_TYPE_PHOTO = "抽取照片";
+	
+	/**
+	 * @field: OPT_TYPE_PHOTO
+	 * @Discription: 操作类型抽取照片
+	 */
+	public static final String OPT_TYPE_SEND = "传输数据";
+}

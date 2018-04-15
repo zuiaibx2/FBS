@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/itf/spike"
+   committed-rev="45"
+   kind="dir"
+   committed-date="2016-12-01T06:16:10.046568Z"/>
+<entry
+   name="ISpike.java"
+   checksum="cec9510b3b8d48049b366bc9adf6fc05"
+   last-author="wkq"
+   committed-rev="45"
+   text-time="2016-12-01T06:16:10.046000Z"
+   kind="file"
+   committed-date="2016-12-01T06:16:10.046568Z"/>
+</wc-entries>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/private/nc/bs/check/dbo"
+   committed-rev="45"
+   kind="dir"
+   committed-date="2016-12-01T06:16:10.046568Z"/>
+<entry
+   name="CHeckBusinessDataUtil.java"
+   checksum="f739d6b375b8b43c007564afc1d53956"
+   last-author="wkq"
+   text-time="2016-12-01T06:16:10.046000Z"
+   committed-rev="45"
+   kind="file"
+   committed-date="2016-12-01T06:16:10.046568Z"/>
+<entry
+   name="util"
+   kind="dir"/>
+</wc-entries>

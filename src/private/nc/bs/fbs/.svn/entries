@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/private/nc/bs/fbs"
+   committed-rev="8"
+   kind="dir"
+   committed-date="2016-11-16T09:47:42.334822Z"/>
+<entry
+   name="autdatatask"
+   kind="dir"/>
+</wc-entries>

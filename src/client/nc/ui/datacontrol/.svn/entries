@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/client/nc/ui/datacontrol"
+   committed-rev="7"
+   kind="dir"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="ClientCtrl.java"
+   checksum="52a0efced8b2731bb4b5ca89f0fd6bb2"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="ClientEH.java"
+   checksum="547a12a0b4cc58ee4c131a2549204341"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="ClientUI.java"
+   checksum="b7349f47eb8f0dc4462dd7879303b7bb"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="ClientUICheckRule.java"
+   checksum="aa6acf6197a260272290c1a3f3433f25"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="PersonCtrl"
+   kind="dir"/>
+<entry
+   name="base"
+   kind="dir"/>
+<entry
+   name="fbs"
+   kind="dir"/>
+<entry
+   name="secret"
+   kind="dir"/>
+</wc-entries>

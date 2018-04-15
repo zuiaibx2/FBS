@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/private/nc/bs/check"
+   committed-rev="45"
+   kind="dir"
+   committed-date="2016-12-01T06:16:10.046568Z"/>
+<entry
+   name="CheckVObynullpk.java"
+   checksum="d9668c55d969e9bb7222b85482eb5c0f"
+   last-author="xgd"
+   text-time="2016-11-29T06:59:41.486000Z"
+   committed-rev="43"
+   kind="file"
+   committed-date="2016-11-29T07:51:29.868000Z"/>
+<entry
+   name="beanUtil"
+   kind="dir"/>
+<entry
+   name="dbo"
+   kind="dir"/>
+<entry
+   name="impl"
+   kind="dir"/>
+</wc-entries>

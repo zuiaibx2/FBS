@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://192.168.1.2/svn/fbs"
+   name=""
+   revision="53"
+   last-author="xgd"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/client"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   committed-rev="52"
+   kind="dir"
+   committed-date="2016-12-14T02:02:28.149822Z"/>
+<entry
+   name="nc"
+   kind="dir"/>
+</wc-entries>

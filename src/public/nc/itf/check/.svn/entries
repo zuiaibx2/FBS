@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://192.168.1.2/svn/fbs"
+   name=""
+   revision="53"
+   last-author="wkq"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/itf/check"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   committed-rev="47"
+   kind="dir"
+   committed-date="2016-12-07T06:44:19.075863Z"/>
+<entry
+   name="ICheckData.java"
+   checksum="ef7ba2ae75b7217e06a7b19898eeca95"
+   last-author="wkq"
+   text-time="2016-12-07T06:44:19.075000Z"
+   committed-rev="47"
+   kind="file"
+   committed-date="2016-12-07T06:44:19.075863Z"/>
+</wc-entries>

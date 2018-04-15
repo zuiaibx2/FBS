@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://192.168.1.2/svn/fbs"
+   name=""
+   revision="53"
+   last-author="xgd"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/vo"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   committed-rev="43"
+   kind="dir"
+   committed-date="2016-11-29T07:51:29.868715Z"/>
+<entry
+   name="Export"
+   kind="dir"/>
+<entry
+   name="djdz"
+   kind="dir"/>
+<entry
+   name="log"
+   kind="dir"/>
+<entry
+   name="photo"
+   kind="dir"/>
+<entry
+   name="spike"
+   kind="dir"/>
+<entry
+   name="tasktime"
+   kind="dir"/>
+</wc-entries>

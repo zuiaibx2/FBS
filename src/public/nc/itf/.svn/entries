@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://192.168.1.2/svn/fbs"
+   name=""
+   revision="53"
+   last-author="wkq"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/itf"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   committed-rev="47"
+   kind="dir"
+   committed-date="2016-12-07T06:44:19.075863Z"/>
+<entry
+   name="check"
+   kind="dir"/>
+<entry
+   name="export"
+   kind="dir"/>
+<entry
+   name="fbs"
+   kind="dir"/>
+<entry
+   name="log"
+   kind="dir"/>
+<entry
+   name="mid"
+   kind="dir"/>
+<entry
+   name="spike"
+   kind="dir"/>
+</wc-entries>

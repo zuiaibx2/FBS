@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/vo/Export"
+   committed-rev="3"
+   kind="dir"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="FbsDataFileBillVO.java"
+   checksum="52f494c0f211b0b6a29095f083f2ca5a"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="FbsDataFileItemVO.java"
+   checksum="002bfe4ab42c7f77cb60badc7ba89936"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="FbsDatafileVO.java"
+   checksum="59603f34411333f9e9a9c8b06d83e1c7"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="conf"
+   kind="dir"/>
+<entry
+   name="time"
+   kind="dir"/>
+</wc-entries>

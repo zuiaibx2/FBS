@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="xgd"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/client/nc/ui/export/file/extract"
+   committed-rev="52"
+   kind="dir"
+   committed-date="2016-12-14T02:02:28.149822Z"/>
+<entry
+   name="ClientCtrl.java"
+   checksum="2b390b9ee8114eff040e23c5e4248876"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="ClientEH.java"
+   checksum="a0437188d50aaa2d2052ffca24af9f2f"
+   last-author="xgd"
+   text-time="2016-12-05T04:17:46.721000Z"
+   committed-rev="52"
+   kind="file"
+   committed-date="2016-12-14T02:02:28.149000Z"/>
+<entry
+   name="ClientUI.java"
+   checksum="9130cc17cc84dfac0d1ff6d1918683b2"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="ExportDBUtil.java"
+   checksum="1c367e4d0b28600488308f8837322cad"
+   last-author="xgd"
+   text-time="2016-11-30T03:47:21.097000Z"
+   committed-rev="44"
+   kind="file"
+   committed-date="2016-11-30T06:23:08.527000Z"/>
+<entry
+   name="ExportPhotoUtil.java"
+   checksum="cf19dc671d442e57153b126fa10413cb"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="H2Connection.java"
+   checksum="feb6cb4bc14e412e36668158faf6fe49"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="ProcessLine.java"
+   checksum="b6863e5e24ac750e530b51292665ea2d"
+   last-author="wkq"
+   text-time="2016-11-16T09:46:42.220000Z"
+   committed-rev="7"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="WSSendDataUtil.java"
+   revision="54"
+   checksum="78336ea7f29c9a501a4a5d7765368d64"
+   last-author="xgd"
+   text-time="2016-12-14T02:04:37.424000Z"
+   committed-rev="54"
+   kind="file"
+   committed-date="2016-12-14T02:04:45.618000Z"/>
+</wc-entries>

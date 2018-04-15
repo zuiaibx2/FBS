@@ -1,0 +1,161 @@
+package nc.ui.export.file.extract; 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+
+import nc.ui.trade.manage.BillManageUI;
+  
+/**
+ * @ClassName: ProcessLine
+ * <b> 进度条类 </b>
+ * <p>
+ *     在此处添加此类的描述信息
+ * </p>
+ * 创建日期: 2016年10月19日 上午10:48:03
+ * @Author 王凯强
+ * @Version 
+ */
+public class ProcessLine {
+	private JDialog dialog = null;
+	BillManageUI exportUI;
+	
+	public static JProgressBar progressBar = null;
+	
+	
+	public ProcessLine(BillManageUI billUI) {
+		exportUI = billUI;
+		initProgressBar();
+	}
+	
+	/**
+	 * @Title: initProgressBar
+	 * @Description: 初始化滚动条
+	 * @Time: 2016年10月27日 上午9:51:36
+	 */
+	private void initProgressBar(){
+		progressBar = new JProgressBar();
+		progressBar.setPreferredSize(new Dimension(370,20));
+        progressBar.setStringPainted(true);  
+        progressBar.setIndeterminate(false);
+        progressBar.setMaximum(100);
+        progressBar.setValue(0);
+		progressBar.setString("");
+	}
+	
+	/**
+	 * @Title: addSendProcess
+	 * @Description: 增加传输数据进度
+	 * @Author: 王凯强
+	 * @Time: 2016年11月7日 下午3:53:59
+	 * @param tablename
+	 */
+	public static void addSendProcess(String tablename){
+		int interval = (int) Math.ceil(100/28);
+		progressBar.setValue(interval + progressBar.getValue());
+		progressBar.setString("正在传输'"+ tablename +"'数据......");
+	}
+	
+	/**
+	 * @Title: addProcess
+	 * @Description: 获取增量数据提醒，按表名
+	 * @Time: 2016年10月27日 上午9:51:56
+	 * @param tablename
+	 */
+	public static void addProcess(String tablename){
+		if(tablename == null){
+			progressBar.setValue(95);
+			progressBar.setString("正在压缩文件...");
+			return ;
+		}
+		int interval = (int) Math.ceil(100/28);
+		progressBar.setValue(interval + progressBar.getValue());
+		progressBar.setString("正在抽取'"+ tablename +"'数据......");
+	}
+	
+	/**
+	 * @Title: addProcess
+	 * @Description: 进度条修改进度和提醒语句
+	 * @Time: 2016年10月27日 上午9:52:20
+	 * @param value  进度条值
+	 * @param remindStr 进度条提醒语句
+	 */
+	public static void addProcess(int value, String remindStr){
+		progressBar.setValue(value);
+		progressBar.setString(remindStr);
+	}
+	
+	/**
+	 * @Title: addProcess
+	 * @Description: 导出照片进度条
+	 * @Time: 2016年10月26日 上午10:35:55
+	 * @param index 第几个人
+	 * @param all   一共几个人
+	 */
+	public static void addProcess(int index, int all){
+		if(all == 0){
+			progressBar.setValue(99);
+			progressBar.setString("正在压缩文件...");
+			return ;
+		}
+		
+		int interval = (int) Math.ceil(100/all);
+		progressBar.setValue(interval + progressBar.getValue());
+		progressBar.setString("正在抽取第"+ index +"个人员的照片......");
+	}
+	
+    public JDialog run(){
+    	// 得到显示器屏幕的宽高
+        int width = exportUI.getWidth();
+        int height = exportUI.getHeight();
+        
+        JLabel label = new JLabel("耗时操作，数据抽取中，请稍候！");
+        
+        JPanel panel = new JPanel();      
+        panel.add(label);
+        panel.setAlignmentY(Component.TOP_ALIGNMENT);
+        panel.setSize(370, 30);
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT,5,5));
+        
+        JPanel progressPanel = new JPanel();      
+        progressPanel.add(progressBar);
+        progressPanel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+        progressPanel.setSize(370, 30);
+        progressPanel.setLayout(new FlowLayout(FlowLayout.CENTER,30,30));
+        
+        dialog = new JDialog();
+        dialog.add(panel);
+        dialog.add(progressPanel);
+        dialog.setTitle("提示");
+		dialog.setLocationRelativeTo(exportUI);
+		dialog.setAlwaysOnTop(true);
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        dialog.setBounds(width / 2, height / 2, 400, 100);
+        dialog.setResizable(false);
+        return dialog;
+    }
+    
+//    调用方法如下：注意processDialog.setVisible(true);必须放在线程之后
+//    final JDialog processDialog = new ProcessLine(getUI()).run();
+//	new Thread(new Runnable() {
+//		public void run() {
+//			try {
+//				ecportUtil.exportData(fileSavePath, thistime, starttime);
+//				SuperVO[] queryVos = queryHeadVOs(" operate_time >='"+thistime+"' ");
+//				
+//				getBufferData().clear();
+//				// 增加数据到Buffer
+//				addDataToBuffer(queryVos);
+//				
+//				processDialog.setVisible(false);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}).start();
+//	processDialog.setVisible(true);
+}  

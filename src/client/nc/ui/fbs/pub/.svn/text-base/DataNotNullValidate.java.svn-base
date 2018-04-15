@@ -1,0 +1,172 @@
+package nc.ui.fbs.pub;
+
+import nc.ui.pub.bill.BillCardPanel;
+import nc.ui.pub.bill.BillData;
+import nc.ui.pub.bill.BillItem;
+import nc.ui.pub.bill.UITextAreaScrollPane;
+import nc.vo.pub.NullFieldException;
+import nc.vo.pub.ValidationException;
+import nc.vo.pub.bill.BillTabVO;
+
+/**
+ * 
+ * 功能： 校验必输项，并光标定位到第一个必输项 // 模板配置非空校验,并将光标定位到第一个为空必输项 //
+ * 模板配置非空校验,并将光标定位到第一个为空必输项
+ * 
+ * onBoSave() DataNotNullValidate validater = new
+ * DataNotNullValidate(getBillCardPanelWrapper().getBillCardPanel());
+ * validater.validate();
+ * 
+ */
+public class DataNotNullValidate
+{
+
+	BillCardPanel cardPanel = null;
+
+	BillData bd = null;
+
+	public DataNotNullValidate(BillCardPanel cardpanel)
+	{
+		cardPanel = cardpanel;
+		bd = cardPanel.getBillData();
+	}
+
+	/**
+	 * 校验必输项，并光标定位
+	 */
+	public void validate() throws ValidationException
+	{
+		StringBuffer message = null;
+		BillItem[] headtailitems = bd.getHeadTailItems();
+		BillItem firstNullItem = null;
+		if (headtailitems != null)
+		{
+			for (int i = 0; i < headtailitems.length; i++)
+			{
+				if (headtailitems[i].isNull())
+					if (headtailitems[i].isEnabled() // 可编辑
+					        && headtailitems[i].isBaseTableCodeShow() // 卡片显示
+					        && isNULL(headtailitems[i].getValueObject()))
+					{
+						if (firstNullItem == null)
+						{
+							firstNullItem = headtailitems[i];
+						}
+						if (message == null)
+							message = new StringBuffer();
+						message.append("[");
+						message.append(headtailitems[i].getName());
+						message.append("]");
+						message.append(",");
+					}
+			}
+		}
+		if (message != null)
+		{
+			message.deleteCharAt(message.length() - 1);
+			// 光标定位
+			String tableCode = firstNullItem.getTableCode();
+			BillTabVO tabvo = new BillTabVO();
+			tabvo.setPos(BillData.HEAD);
+			tabvo.setTabcode(tableCode);
+			int index = cardPanel.getHeadTabbedPane().getIndexofTableCode(tabvo);
+			cardPanel.getHeadTabbedPane().setSelectedIndex(index);
+			if (firstNullItem.getDataType() == BillItem.TEXTAREA)
+			{
+				((UITextAreaScrollPane) firstNullItem.getComponent()).getUITextArea().requestFocusInWindow();
+			}
+			else
+			{
+				firstNullItem.getComponent().requestFocusInWindow();
+			}
+			throw new NullFieldException(message.toString());
+		}
+
+		// 增加多子表的循环
+		String[] tableCodes = bd.getTableCodes(BillData.BODY);
+		int row = -1;
+		if (tableCodes != null)
+		{
+			for (int t = 0; t < tableCodes.length; t++)
+			{
+				String tablecode = tableCodes[t];
+				for (int i = 0; i < bd.getBillModel(tablecode).getRowCount(); i++)
+				{
+					StringBuffer rowmessage = new StringBuffer();
+
+					rowmessage.append(" ");
+					if (tableCodes.length > 1)
+					{
+						rowmessage.append(bd.getTableName(BillData.BODY, tablecode));
+						rowmessage.append("(");
+						// "页签"
+						rowmessage.append(nc.ui.ml.NCLangRes.getInstance().getStrByID("_Bill", "UPP_Bill-000003"));
+						rowmessage.append(") ");
+					}
+					rowmessage.append(i + 1);
+					rowmessage.append("(");
+					// "行"
+					rowmessage.append(nc.ui.ml.NCLangRes.getInstance().getStrByID("_Bill", "UPP_Bill-000002"));
+					rowmessage.append(") ");
+
+					StringBuffer errormessage = null;
+					BillItem[] items = bd.getBodyItemsForTable(tablecode);
+					for (int j = 0; j < items.length; j++)
+					{
+						BillItem item = items[j];
+						if (item.isNull())
+						{
+							Object aValue = bd.getBillModel(tablecode).getValueAt(i, item.getKey());
+							if (item.isEnabled() && item.isBaseTableCodeShow() && isNULL(aValue))
+							{
+								if (firstNullItem == null)
+								{
+									firstNullItem = item;
+									row = i;
+								}
+								errormessage = new StringBuffer();
+								errormessage.append("[");
+								errormessage.append(item.getName());
+								errormessage.append("]");
+								errormessage.append(",");
+							}
+						}
+					}
+					if (errormessage != null)
+					{
+						errormessage.deleteCharAt(errormessage.length() - 1);
+						rowmessage.append(errormessage);
+						if (message == null)
+							message = new StringBuffer(rowmessage);
+						else
+							message.append(rowmessage);
+						break;
+					}
+				}
+				if (message != null)
+					break;
+			}
+		}
+		if (message != null)
+		{
+			// 光标定位
+			String tableCode = firstNullItem.getTableCode();
+			int col = cardPanel.getBillTable(tableCode).convertColumnIndexToView(cardPanel.getBillModel(tableCode).getBodyColByKey(firstNullItem.getKey()));
+			BillTabVO tabvo = new BillTabVO();
+			tabvo.setPos(BillData.BODY);
+			tabvo.setTabcode(tableCode);
+			int index = cardPanel.getBodyTabbedPane().getIndexofTableCode(tabvo);
+			cardPanel.getBodyTabbedPane().setSelectedIndex(index);
+			cardPanel.getBillTable(tableCode).setRowSelectionInterval(row, row);
+			cardPanel.getBillTable(tableCode).setColumnSelectionInterval(col, col);
+			throw new NullFieldException(message.toString());
+		}
+	}
+
+	private boolean isNULL(Object o)
+	{
+		if (o == null || "".equals(o.toString().trim()))
+			return true;
+		return false;
+	}
+}

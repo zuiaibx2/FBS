@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://192.168.1.2/svn/fbs"
+   name=""
+   revision="53"
+   last-author="wkq"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/client/nc/ui/export/conf"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   committed-rev="31"
+   kind="dir"
+   committed-date="2016-11-18T02:23:11.170027Z"/>
+<entry
+   name="ClientCtrl.java"
+   checksum="30de1986cbed42667b37fd0d95c39ac7"
+   last-author="wkq"
+   text-time="2016-11-18T02:23:11.170000Z"
+   committed-rev="31"
+   kind="file"
+   committed-date="2016-11-18T02:23:11.170027Z"/>
+<entry
+   name="ClientEH.java"
+   checksum="35c87f86908d2e50c78824931522dec7"
+   last-author="wkq"
+   committed-rev="7"
+   text-time="2016-11-16T09:46:42.220000Z"
+   kind="file"
+   committed-date="2016-11-16T09:46:42.220916Z"/>
+<entry
+   name="ClientUI.java"
+   checksum="64fde0729970388786cdb0ebdb79e6cd"
+   last-author="xgd"
+   committed-rev="30"
+   text-time="2016-11-18T02:19:29.677000Z"
+   kind="file"
+   committed-date="2016-11-18T02:20:41.877000Z"/>
+</wc-entries>

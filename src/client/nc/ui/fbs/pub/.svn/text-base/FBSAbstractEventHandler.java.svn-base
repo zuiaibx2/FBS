@@ -1,0 +1,565 @@
+package nc.ui.fbs.pub;
+
+import nc.ui.pub.ButtonObject;
+import nc.ui.pub.beans.MessageDialog;
+import nc.ui.pub.beans.UIDialog;
+import nc.ui.pub.bill.BillItem;
+import nc.ui.pub.bill.BillModel;
+import nc.ui.pub.pf.PfUtilClient;
+import nc.ui.pub.workflownote.FlowStateDlg;
+import nc.ui.trade.base.IBillOperate;
+import nc.ui.trade.bill.AbstractManageController;
+import nc.ui.trade.bill.ISingleController;
+import nc.ui.trade.business.HYPubBO_Client;
+import nc.ui.trade.controller.IControllerBase;
+import nc.ui.trade.manage.BillManageUI;
+import nc.ui.trade.manage.ManageEventHandler;
+import nc.vo.pub.AggregatedValueObject;
+import nc.vo.pub.BusinessException;
+import nc.vo.pub.SuperVO;
+import nc.vo.trade.pub.IExAggVO;
+
+import org.apache.commons.lang.StringUtils;
+//
+/**
+ * 单据事件处理抽象基类
+ *  
+ * @author zhangjh
+ * @since 2012-08-28
+ */
+
+public abstract class FBSAbstractEventHandler extends ManageEventHandler
+{
+
+	protected final BillManageUI billUI;
+
+	protected final AbstractManageController control;
+
+	public FBSAbstractEventHandler(BillManageUI billUI, IControllerBase control)
+	{
+		super(billUI, control);
+		this.billUI = billUI;
+		this.control = (AbstractManageController) control;
+	}
+	public void onBoImportExcel() throws Exception {
+	}
+	@Override
+	protected void onBoElse(int intBtn) throws Exception
+	{
+		
+		super.onBoElse(intBtn);
+		
+	}
+
+	/**
+	 * @description 显示审批流状态对话框 <br>
+	 * @author llj
+	 * @date 2008-9-25 下午06:19:02
+	 * @throws BusinessException
+	 */
+	protected void onBoWorkflowStatus() throws BusinessException
+	{
+		AggregatedValueObject aggvo = getBufferData().getCurrentVOClone();
+		if (aggvo == null || aggvo.getParentVO() == null)
+			throw new BusinessException("请先选择需要查询的单据！");
+		if (aggvo.getParentVO().getPrimaryKey() == null)
+			throw new BusinessException("该单据尚未保存，无审批流信息！");
+
+		FlowStateDlg dlgAuditStatus = new FlowStateDlg(billUI, billUI.getUIControl().getBillType(), aggvo.getParentVO().getPrimaryKey());
+		dlgAuditStatus.showModal();
+	}
+
+	@Override
+	protected void onBoSave() throws Exception
+	{
+		// checkNullHead();
+		// checkNullBody();
+		getBillCardPanelWrapper().getBillCardPanel().dataNotNullValidate();
+		
+//		getBillCardPanelWrapper().getBillCardPanel().getHeadItem("pk_corp").setValue(_getCorp().getPk_corp());// 公司
+//		getBillCardPanelWrapper().getBillCardPanel().getHeadItem("bill_writer").setValue(_getOperator());// 修改人
+//		getBillCardPanelWrapper().getBillCardPanel().getHeadItem("bill_write_date").setValue(_getDate());// 修改日期
+//		
+//		System.out.println(getBillCardPanelWrapper().getBillCardPanel().getHeadItem("pk_corp").getValue());
+		super.onBoSave();
+		// afterOnBoBtn();
+	}
+
+	@Override
+	protected void onBoEdit() throws Exception
+	{
+		super.onBoEdit();
+	}
+
+	@Override
+	protected void onBoCopy() throws Exception
+	{
+		super.onBoCopy();
+	}
+
+	@Override
+	public void onBoAdd(ButtonObject bo) throws Exception
+	{
+		super.onBoAdd(bo);
+	}
+
+	@Override
+	public void onBoAudit() throws Exception
+	{
+
+		super.onBoAudit();
+	}
+
+	@Override
+	protected void onBoCancelAudit() throws Exception
+	{
+
+		super.onBoCancelAudit();
+	}
+
+	@Override
+	protected void onBoRefresh() throws Exception
+	{
+		super.onBoRefresh();
+	}
+///**
+// * @throws Exception 
+// * 
+// */
+//	protected void onBoQuery() throws Exception {
+//	// TODO Auto-generated method stub
+//       super.onBoQuery();
+//   }
+	@Override
+	protected void onBoReturn() throws Exception
+	{
+		super.onBoReturn();
+	}
+
+	/**
+	 * 全选按钮
+	 */
+	protected void onBoSelAll() throws Exception
+	{
+		if (billUI.isListPanelSelected())
+		{
+			int rowcount = billUI.getBillListPanel().getHeadTable().getRowCount();
+			for (int i = 0; i < rowcount; i++)
+			{
+				billUI.getBillListPanel().getHeadBillModel().setRowState(i, BillModel.SELECTED);
+			}
+		}
+	}
+
+	/**
+	 * 全消按钮.
+	 */
+	protected void onBoSelNone() throws Exception
+	{
+		if (billUI.isListPanelSelected())
+		{
+			int rowcount = billUI.getBillListPanel().getHeadTable().getRowCount();
+			for (int i = 0; i < rowcount; i++)
+			{
+				if (billUI.getBillListPanel().getHeadBillModel().getRowState(i) == BillModel.SELECTED)
+					billUI.getBillListPanel().getHeadBillModel().setRowState(i, BillModel.UNSTATE);
+			}
+		}
+	}
+
+	/**
+	 * 根据名称返回 item <br>
+	 * 适用于非表体item<br>
+	 * 创建日期：2008-10-27
+	 * 
+	 * @param name
+	 *            item name
+	 * @return BillItem
+	 */
+	public BillItem getItem(String name) throws Exception
+	{
+		if (StringUtils.isBlank(name))
+		{
+			billUI.showErrorMessage("ErmAbstractEventHandler.getItem(String name)，参数name为空");
+			return null;
+		}
+		if (billUI.getBillCardPanel().getHeadItem(name) != null)
+		{
+			return billUI.getBillCardPanel().getHeadItem(name);
+		}
+		else if (billUI.getBillCardPanel().getTailItem(name) != null)
+		{
+			return billUI.getBillCardPanel().getTailItem(name);
+		}
+		else
+		{
+			billUI.showErrorMessage("ErmAbstractEventHandler.getItem(String name)，没有获取到字段" + name);
+			return null;
+		}
+	}
+
+	/**
+	 * 判断元素是否可编辑<br>
+	 * 适用于非表体item<br>
+	 * 可编辑 返回 true ，不可编辑返回 false 没有对应元素 返回null <br>
+	 * 创建日期：2008-10-27
+	 * 
+	 * @param name
+	 *            item name
+	 * @return Boolean
+	 */
+	public Boolean isEnabled(String itemkey) throws Exception
+	{
+		return getItem(itemkey).isEnabled();
+	}
+
+	/**
+	 * 给item 赋值 创建日期：2008-10-30<br>
+	 * 适用于非表体item<br>
+	 * 
+	 * @return void
+	 * @param name
+	 *            元素名称
+	 * @param value
+	 *            值
+	 */
+	public void setItemValue(String name, Object value) throws Exception
+	{
+		if (getItem(name) != null)
+		{
+			getItem(name).setValue(value);
+		}
+	}
+
+	@Override
+	protected void onBoLineAdd() throws Exception
+	{
+		super.onBoLineAdd();
+
+	}
+
+	@Override
+	protected void onBoDelete() throws Exception
+	{
+		//super.onBoDelete();
+//		 界面没有数据或者有数据但是没有选中任何行
+		if (getBufferData().getCurrentVO() == null)
+			return;
+
+		if (MessageDialog.showOkCancelDlg(getBillUI(),
+				nc.ui.ml.NCLangRes.getInstance().getStrByID("uifactory",
+						"UPPuifactory-000064")/* @res "档案删除" */,
+				nc.ui.ml.NCLangRes.getInstance().getStrByID("uifactory",
+						"UPPuifactory-000065")/* @res "是否确认删除该基本档案?" */
+				, MessageDialog.ID_CANCEL) != UIDialog.ID_OK)
+			return;
+
+		AggregatedValueObject modelVo = getBufferData().getCurrentVO();
+//		getBusinessAction().delete(modelVo, getUIController().getBillType(),
+//				getBillUI()._getDate().toString(), getBillUI().getUserObject());
+		
+		//改采用直接删除的方式
+		//删除子表
+		if (modelVo instanceof IExAggVO) {
+			SuperVO[] items = (SuperVO[]) ((IExAggVO) modelVo).getAllChildrenVO();
+			if(items!=null&&items.length>0){
+				for(SuperVO item:items){
+					HYPubBO_Client.delete(item) ;
+				}
+			}
+			HYPubBO_Client.delete((SuperVO)modelVo.getParentVO()) ;
+		}else{
+			SuperVO[] items =(SuperVO[]) modelVo.getChildrenVO() ;
+			if(items!=null&&items.length>0){
+				for(SuperVO item:items){
+					HYPubBO_Client.delete(item) ;
+				}
+			}
+			HYPubBO_Client.delete((SuperVO)modelVo.getParentVO()) ;
+		}
+		
+		
+		if (PfUtilClient.isSuccess()) {
+			// 清除界面数据
+			getBillUI().removeListHeadData(getBufferData().getCurrentRow());
+			if (getUIController() instanceof ISingleController) {
+				ISingleController sctl = (ISingleController) getUIController();
+				if (!sctl.isSingleDetail())
+					getBufferData().removeCurrentRow();
+			} else {
+				getBufferData().removeCurrentRow();
+			}
+
+		}
+		if (getBufferData().getVOBufferSize() == 0)
+			getBillUI().setBillOperate(IBillOperate.OP_INIT);
+		else
+			getBillUI().setBillOperate(IBillOperate.OP_NOTEDIT);
+		getBufferData().setCurrentRow(getBufferData().getCurrentRow());
+	}
+
+	/**
+	 * <strong>Description:得到表头某字段值</strong><br>
+	 * <br>
+	 * 
+	 * @param headItemKey
+	 * @return
+	 */
+	public Object getHeadItemValue(String headItemKey)
+	{
+		return getBillCardPanelWrapper().getBillCardPanel().getHeadItem(headItemKey).getValueObject();
+	}
+
+	/**
+	 * 附件
+	 * 
+	 * @throws Exception
+	 */
+	protected void onBoFileWrite() throws Exception
+	{
+
+//		String strObjectPk = getObjectPk();
+//
+//		EhrAttachmentDialog attachmentDialog = new EhrAttachmentDialog(getBillUI(), strObjectPk, ((SuperVO) (getBillUI().getBufferData().getCurrentVO().getParentVO())).getTableName());
+//
+//		attachmentDialog.setFileBtnUsable(0);
+//
+//		attachmentDialog.setUsePower(false);
+//
+//		attachmentDialog.showModal();
+	}
+
+	/**
+	 * 获得当前VO的表头主键
+	 * 
+	 * @return
+	 * @throws BusinessException
+	 */
+	public String getObjectPk() throws BusinessException
+	{
+		AggregatedValueObject hrAggVO = getBillUI().getBufferData().getCurrentVO();
+
+		String strErrorMsg = "请选择数据！";
+
+		if (hrAggVO == null || hrAggVO.getParentVO() == null)
+		{
+			throw new BusinessException(strErrorMsg);
+		}
+
+		String strObjectPk = hrAggVO.getParentVO().getPrimaryKey();
+
+		if (strObjectPk == null || strObjectPk.trim().length() == 0)
+		{
+			throw new BusinessException("当前没有数据，不能维护附件！");
+		}
+
+		return strObjectPk;
+	}
+
+	// 上一条
+	protected void onboPrev()
+	{
+		int row = getBufferData().getCurrentRow();
+		getBufferData().setCurrentRow(row - 1);
+		getBufferData().updateView();
+	}
+
+	// 下一条
+	protected void onboNext()
+	{
+		int row = getBufferData().getCurrentRow();
+		getBufferData().setCurrentRow(row + 1);
+		getBufferData().updateView();
+	}
+
+	/**
+	 * 初始卡片状态、上一条、下一条后按钮状态处理
+	 */
+	protected void afterOnBoBtn()
+	{
+		getBillUI().updateButtons();
+	}
+
+	@Override
+	protected void onBoCancel() throws Exception
+	{
+		// TODO 自动生成方法存根
+		super.onBoCancel();
+		afterOnBoBtn();
+	}
+
+
+	/**
+	 * 获取审批流信息
+	 * 
+	 * @param pk_businessabroad
+	 * @param pk_billtype
+	 * @return
+	 * @throws BusinessException
+	 */
+//	public WorkFlowNoteVO[] getWorkNote(String pk_businessabroad, String pk_billtype) throws BusinessException
+//	{
+//
+//		StringBuffer sb = new StringBuffer();
+//		sb.append(" select b.user_name  user_name,dealdate  senddate,checknote ischeck");
+//		sb.append("  from pub_workflownote c, sm_user a, sm_user b");
+//		sb.append("  where c.senderman = a.cuserid");
+//		sb.append("    and c.checkman = b.cuserid");
+//		sb.append("    and billId = '" + pk_businessabroad + "'");
+//		sb.append("    and actiontype <> 'BIZ'");
+//		sb.append("    and pk_billtype = '" + pk_billtype + "'");
+//		sb.append("    and (workflow_type is null or workflow_type = 1)");
+//		sb.append("  order by c.senddate");
+//		IUAPQueryBS query = (IUAPQueryBS) NCLocator.getInstance().lookup(IUAPQueryBS.class.getName());
+//
+//		ArrayList<WorkFlowNoteVO> listnote = (ArrayList<WorkFlowNoteVO>) query.executeQuery(sb.toString(), new BeanListProcessor(WorkFlowNoteVO.class));
+//		WorkFlowNoteVO[] notevos = (WorkFlowNoteVO[]) listnote.toArray(new WorkFlowNoteVO[listnote.size()]);
+//
+//		if (null != notevos && notevos.length > 0)
+//		{
+//			for (WorkFlowNoteVO vo : notevos)
+//			{
+//				// if(vo.getIscheck().equals("X")){
+//				// vo.setIscheck("作废");
+//				// }else if(vo.getIscheck().equals("Y")){
+//				// vo.setIscheck("审批通过");
+//				// }else if(vo.getIscheck().equals("N")){
+//				// vo.setIscheck("未审批");
+//				// }
+//				if (vo.getSenddate() != null)
+//				{
+//					UFDateTime datetime = new UFDateTime(vo.getSenddate());
+//					String sdatetime = datetime.getYear() + "年" + datetime.getMonth() + "月" + datetime.getDay() + "日 " + datetime.getHour() + "时" + datetime.getMinute() + "分" + datetime.getSecond() + "秒";
+//					vo.setSenddate(sdatetime);
+//				}
+//			}
+//		}
+//
+//		return notevos;
+//	}
+
+	/**
+	 * 打印
+	 * 
+	 * @throws Exception
+	 */
+//	protected void onPrint() throws Exception
+//	{
+//		// 如果是列表界面，使用ListPanelPRTS数据源
+//		if (((BillManageUI) getBillUI()).isListPanelSelected())
+//		{
+//			nc.ui.pub.print.IDataSource dataSource = new ListPanelPRTS(getBillUI()._getModuleCode(), ((BillManageUI) getBillUI()).getBillListPanel());
+//			nc.ui.pub.print.PrintEntry print = new nc.ui.pub.print.PrintEntry(null, dataSource);
+//			print.setTemplateID(getBillUI()._getCorp().getPrimaryKey(), getBillUI()._getModuleCode(), getBillUI()._getOperator(), getBillUI().getBusinessType(), getBillUI().getNodeKey());
+//
+//			if (print.selectTemplate() == 1)
+//			{
+//				// TODO modify
+//				BUSINESSABROADBVO[] b1vos = (BUSINESSABROADBVO[]) ((BillManageUI) getBillUI()).getBillListPanel().getBodyBillModel("dmo_businessabroad_b").getBodyValueVOs(BUSINESSABROADBVO.class.getName());
+//				BUSINESSABROADBVO[] newbvos = new BUSINESSABROADBVO[29];
+//				for (int i = 0; i < newbvos.length; i++)
+//				{
+//					newbvos[i] = new BUSINESSABROADBVO();
+//					if (i < b1vos.length)
+//					{
+//						newbvos[i] = b1vos[i];
+//					}
+//				}
+//				((BillManageUI) getBillUI()).getBillListPanel().setBodyValueVO("dmo_businessabroad_b", newbvos);
+//				// end
+//				print.preview();
+//			}
+//		}
+//		// 如果是卡片界面，使用CardPanelPRTS数据源
+//		else
+//		{
+//			int pageone = 28;// 第一页行数
+//			int pagetnoend = 34;// 非末页显示行数
+//			
+//			IStaffOut staff=(IStaffOut)NCLocator.getInstance().lookup(IStaffOut.class.getName());
+//			int[] iprintrows=staff.getPrintRow();
+//			if(null!=iprintrows&&iprintrows.length==2){
+//				pageone=iprintrows[0];
+//				pagetnoend=iprintrows[1];
+//			}
+//			
+//
+//			nc.ui.pub.print.IDataSource dataSource = new CardPanelPRTS(getBillUI()._getModuleCode(), getBillCardPanelWrapper().getBillCardPanel());
+//			nc.ui.pub.print.PrintEntry print = new nc.ui.pub.print.PrintEntry(null, dataSource);
+//			print.setTemplateID(getBillUI()._getCorp().getPrimaryKey(), getBillUI()._getModuleCode(), getBillUI()._getOperator(), getBillUI().getBusinessType(), getBillUI().getNodeKey());
+//			if (print.selectTemplate() == 1)
+//			{
+//				// TODO modify
+//				BUSINESSABROADBVO[] b1vos = (BUSINESSABROADBVO[]) ((BillManageUI) getBillUI()).getBillCardPanel().getBillModel("dmo_businessabroad_b").getBodyValueVOs(BUSINESSABROADBVO.class.getName());
+//
+//				// 只一页
+//				if (b1vos != null & b1vos.length < (pageone +1))
+//				{
+//					BUSINESSABROADBVO[] newbvos = new BUSINESSABROADBVO[pageone];
+//					for (int i = 0; i < newbvos.length; i++)
+//					{
+//						newbvos[i] = new BUSINESSABROADBVO();
+//						if (i < b1vos.length)
+//						{
+//							newbvos[i] = b1vos[i];
+//						}
+//					}
+//					((BillManageUI) getBillUI()).getBillCardPanel().getBillModel("dmo_businessabroad_b").setBodyDataVO(newbvos);
+//
+//				}
+//				else if (b1vos.length >= (pageone+1) && b1vos.length < (pagetnoend+1))
+//				{
+//					// 两页
+//					int irows = (pagetnoend - b1vos.length) + pageone;
+//					BUSINESSABROADBVO[] newbvos = new BUSINESSABROADBVO[b1vos.length + irows];
+//					for (int i = 0; i < newbvos.length; i++)
+//					{
+//						newbvos[i] = new BUSINESSABROADBVO();
+//						if (i < b1vos.length)
+//						{
+//							newbvos[i] = b1vos[i];
+//						}
+//					}
+//					((BillManageUI) getBillUI()).getBillCardPanel().getBillModel("dmo_businessabroad_b").setBodyDataVO(newbvos);
+//
+//				}
+//				else
+//				{
+//					// 多页
+//					int irows = b1vos.length % pagetnoend;
+//					if (irows < (pageone +1))
+//					{
+//						BUSINESSABROADBVO[] newbvos = new BUSINESSABROADBVO[b1vos.length + (pageone - irows)];
+//						for (int i = 0; i < newbvos.length; i++)
+//						{
+//							newbvos[i] = new BUSINESSABROADBVO();
+//							if (i < b1vos.length)
+//							{
+//								newbvos[i] = b1vos[i];
+//							}
+//						}
+//						((BillManageUI) getBillUI()).getBillCardPanel().getBillModel("dmo_businessabroad_b").setBodyDataVO(newbvos);
+//					}
+//					else
+//					{
+//						irows = (pagetnoend - b1vos.length % pagetnoend) + pageone;
+//						BUSINESSABROADBVO[] newbvos = new BUSINESSABROADBVO[b1vos.length + irows];
+//						for (int i = 0; i < newbvos.length; i++)
+//						{
+//							newbvos[i] = new BUSINESSABROADBVO();
+//							if (i < b1vos.length)
+//							{
+//								newbvos[i] = b1vos[i];
+//							}
+//						}
+//						((BillManageUI) getBillUI()).getBillCardPanel().getBillModel("dmo_businessabroad_b").setBodyDataVO(newbvos);
+//					}
+//				}
+//				// end
+//				print.preview();
+//			}
+//		}
+//	}
+	
+	
+}

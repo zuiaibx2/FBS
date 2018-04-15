@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/vo/spike/hi"
+   committed-rev="3"
+   kind="dir"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_abroadVO.java"
+   checksum="80c71683e4490897fff31feec5adb51b"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_deptchgVO.java"
+   checksum="2680965ea41b3e7163e47a70c6ce8408"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_dimissionVO.java"
+   checksum="c74abef74caf7f51252e6c0c5e9b77bd"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_eduVO.java"
+   checksum="1bb85895555ad07ffeb965584bfc65f4"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_encVO.java"
+   checksum="c1d6b4f73710cff1f63ae3d4227f3663"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_grpdef11VO.java"
+   checksum="e6c8786712f2204771e0cdd865ec877d"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_grpdef14VO.java"
+   checksum="2a274387ca679eca451123a493addcdf"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_partylogVO.java"
+   checksum="a8ba2c2a71e1e7ad364bfaf3a736fd0a"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_punVO.java"
+   checksum="cc9d90ac19c760f78512bc168bf79e68"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_spetechVO.java"
+   checksum="e1bbcf162ffc628657e0002f038a0ca7"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_techrankVO.java"
+   checksum="2c045192c76fd4ace8074eca9b4408ad"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_trainingVO.java"
+   checksum="fce243b784f704c7681171dcd01cca2a"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Hi_psndoc_workVO.java"
+   checksum="1490317a352cc11f2325b05660681722"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+</wc-entries>

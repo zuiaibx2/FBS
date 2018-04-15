@@ -1,0 +1,475 @@
+package nc.vo.spike.wa;
+
+import nc.vo.spike.BasicVO;
+
+/**
+ * @ClassName: Wa_dataVO
+ * <b> 薪酬管理-发放总额中间表VO </b>
+ * <p>
+ *     在此处添加此类的描述信息
+ * </p>
+ * 创建日期: 2016年7月29日 下午1:48:06
+ * @Author 王凯强
+ * @Version 
+ */
+public class Wa_dataVO extends BasicVO {
+
+	private static final long serialVersionUID = -5295426244071381835L;
+	private java.lang.String bankid;
+	private java.lang.String classid;
+	private java.lang.String cnestperiod;
+	private java.lang.String cnestyear;
+	private java.lang.String cperiod;
+	private java.lang.String cyear;
+	private java.lang.String deptid;
+	private java.lang.Integer dr;
+	private java.lang.Double f_1;
+	private java.lang.Double f_2;
+	private java.lang.Double f_3;
+	private java.lang.Double f_4;
+	private java.lang.Double icheckflag;
+	private java.lang.Double ipartflag;
+	private java.lang.Double irecaculateflag;
+	private java.lang.Double irecheckflag;
+	private java.lang.Double istopflag;
+	private java.lang.Double itaxflag;
+	private java.lang.String nestdeptid;
+	private java.lang.String nestpk_om_job;
+	private java.lang.String nestpsnclid;
+	private java.lang.String pk_om_job;
+	private java.lang.String pk_psnbasdoc;
+	private java.lang.String pk_psndoc_sub;
+	/**
+	 * @field: pk_wa_data
+	 * @Discription: 主键
+	 */
+	private java.lang.String pk_wa_data;
+	private java.lang.String pk_wa_data_old;
+	private java.lang.String psnclid;
+	private java.lang.String psnid;
+	private java.lang.Double redtotal;
+	private java.lang.String taxtableid;
+	private java.lang.String ts;
+	private java.lang.String vacccode;
+	private java.lang.Double d_11;
+	private java.lang.Double d_12;
+	private java.lang.Double d_13;
+	private java.lang.Double d_14;
+	private java.lang.Double d_21;
+	private java.lang.Double d_22;
+	private java.lang.Double d_23;
+	private java.lang.Double d_24;
+	private java.lang.Double d_25;
+	private java.lang.Double d_26;
+	private java.lang.String anbonusflag;
+	private java.lang.String wa_data_object_id;
+	/**
+	 * @field: pk_corp
+	 * @Discription: 公司编码
+	 */
+	private java.lang.String pk_corp;
+	
+	/**
+	 * @field: psncode
+	 * @Discription: 员工编码
+	 */
+	private java.lang.String psncode;
+	
+	/**
+	 * @field: pk_psncl
+	 * @Discription: 人员类别
+	 */
+	private java.lang.String pk_psncl;
+	
+	public java.lang.String getPk_corp() {
+		return pk_corp;
+	}
+
+	public void setPk_corp(java.lang.String pk_corp) {
+		this.pk_corp = pk_corp;
+	}
+
+	public java.lang.String getPsncode() {
+		return psncode;
+	}
+
+	public void setPsncode(java.lang.String psncode) {
+		this.psncode = psncode;
+	}
+
+	public java.lang.String getPk_psncl() {
+		return pk_psncl;
+	}
+
+	public void setPk_psncl(java.lang.String pk_psncl) {
+		this.pk_psncl = pk_psncl;
+	}
+
+	public java.lang.String getBankid() {
+		return bankid;
+	}
+
+	public void setBankid(java.lang.String bankid) {
+		this.bankid = bankid;
+	}
+
+	public java.lang.String getClassid() {
+		return classid;
+	}
+
+	public void setClassid(java.lang.String classid) {
+		this.classid = classid;
+	}
+
+	public java.lang.String getCnestperiod() {
+		return cnestperiod;
+	}
+
+	public void setCnestperiod(java.lang.String cnestperiod) {
+		this.cnestperiod = cnestperiod;
+	}
+
+	public java.lang.String getCnestyear() {
+		return cnestyear;
+	}
+
+	public void setCnestyear(java.lang.String cnestyear) {
+		this.cnestyear = cnestyear;
+	}
+
+	public java.lang.String getCperiod() {
+		return cperiod;
+	}
+
+	public void setCperiod(java.lang.String cperiod) {
+		this.cperiod = cperiod;
+	}
+
+	public java.lang.String getCyear() {
+		return cyear;
+	}
+
+	public void setCyear(java.lang.String cyear) {
+		this.cyear = cyear;
+	}
+
+	public java.lang.String getDeptid() {
+		return deptid;
+	}
+
+	public void setDeptid(java.lang.String deptid) {
+		this.deptid = deptid;
+	}
+
+	public java.lang.Integer getDr() {
+		return dr;
+	}
+
+	public void setDr(java.lang.Integer dr) {
+		this.dr = dr;
+	}
+
+	public java.lang.Double getF_1() {
+		return f_1;
+	}
+
+	public void setF_1(java.lang.Double f_1) {
+		this.f_1 = f_1;
+	}
+
+	public java.lang.Double getF_2() {
+		return f_2;
+	}
+
+	public void setF_2(java.lang.Double f_2) {
+		this.f_2 = f_2;
+	}
+
+	public java.lang.Double getF_3() {
+		return f_3;
+	}
+
+	public void setF_3(java.lang.Double f_3) {
+		this.f_3 = f_3;
+	}
+
+	public java.lang.Double getF_4() {
+		return f_4;
+	}
+
+	public void setF_4(java.lang.Double f_4) {
+		this.f_4 = f_4;
+	}
+
+	public java.lang.Double getIcheckflag() {
+		return icheckflag;
+	}
+
+	public void setIcheckflag(java.lang.Double icheckflag) {
+		this.icheckflag = icheckflag;
+	}
+
+	public java.lang.Double getIpartflag() {
+		return ipartflag;
+	}
+
+	public void setIpartflag(java.lang.Double ipartflag) {
+		this.ipartflag = ipartflag;
+	}
+
+	public java.lang.Double getIrecaculateflag() {
+		return irecaculateflag;
+	}
+
+	public void setIrecaculateflag(java.lang.Double irecaculateflag) {
+		this.irecaculateflag = irecaculateflag;
+	}
+
+	public java.lang.Double getIrecheckflag() {
+		return irecheckflag;
+	}
+
+	public void setIrecheckflag(java.lang.Double irecheckflag) {
+		this.irecheckflag = irecheckflag;
+	}
+
+	public java.lang.Double getIstopflag() {
+		return istopflag;
+	}
+
+	public void setIstopflag(java.lang.Double istopflag) {
+		this.istopflag = istopflag;
+	}
+
+	public java.lang.Double getItaxflag() {
+		return itaxflag;
+	}
+
+	public void setItaxflag(java.lang.Double itaxflag) {
+		this.itaxflag = itaxflag;
+	}
+
+	public java.lang.String getNestdeptid() {
+		return nestdeptid;
+	}
+
+	public void setNestdeptid(java.lang.String nestdeptid) {
+		this.nestdeptid = nestdeptid;
+	}
+
+	public java.lang.String getNestpk_om_job() {
+		return nestpk_om_job;
+	}
+
+	public void setNestpk_om_job(java.lang.String nestpk_om_job) {
+		this.nestpk_om_job = nestpk_om_job;
+	}
+
+	public java.lang.String getNestpsnclid() {
+		return nestpsnclid;
+	}
+
+	public void setNestpsnclid(java.lang.String nestpsnclid) {
+		this.nestpsnclid = nestpsnclid;
+	}
+
+	public java.lang.String getPk_om_job() {
+		return pk_om_job;
+	}
+
+	public void setPk_om_job(java.lang.String pk_om_job) {
+		this.pk_om_job = pk_om_job;
+	}
+
+	public java.lang.String getPk_psnbasdoc() {
+		return pk_psnbasdoc;
+	}
+
+	public void setPk_psnbasdoc(java.lang.String pk_psnbasdoc) {
+		this.pk_psnbasdoc = pk_psnbasdoc;
+	}
+
+	public java.lang.String getPk_psndoc_sub() {
+		return pk_psndoc_sub;
+	}
+
+	public void setPk_psndoc_sub(java.lang.String pk_psndoc_sub) {
+		this.pk_psndoc_sub = pk_psndoc_sub;
+	}
+
+	public java.lang.String getPk_wa_data() {
+		return pk_wa_data;
+	}
+
+	public void setPk_wa_data(java.lang.String pk_wa_data) {
+		this.pk_wa_data = pk_wa_data;
+	}
+
+	public java.lang.String getPk_wa_data_old() {
+		return pk_wa_data_old;
+	}
+
+	public void setPk_wa_data_old(java.lang.String pk_wa_data_old) {
+		this.pk_wa_data_old = pk_wa_data_old;
+	}
+
+	public java.lang.String getPsnclid() {
+		return psnclid;
+	}
+
+	public void setPsnclid(java.lang.String psnclid) {
+		this.psnclid = psnclid;
+	}
+
+	public java.lang.String getPsnid() {
+		return psnid;
+	}
+
+	public void setPsnid(java.lang.String psnid) {
+		this.psnid = psnid;
+	}
+
+	public java.lang.Double getRedtotal() {
+		return redtotal;
+	}
+
+	public void setRedtotal(java.lang.Double redtotal) {
+		this.redtotal = redtotal;
+	}
+
+	public java.lang.String getTaxtableid() {
+		return taxtableid;
+	}
+
+	public void setTaxtableid(java.lang.String taxtableid) {
+		this.taxtableid = taxtableid;
+	}
+
+	public java.lang.String getTs() {
+		return ts;
+	}
+
+	public void setTs(java.lang.String ts) {
+		this.ts = ts;
+	}
+
+	public java.lang.String getVacccode() {
+		return vacccode;
+	}
+
+	public void setVacccode(java.lang.String vacccode) {
+		this.vacccode = vacccode;
+	}
+
+	public java.lang.Double getD_11() {
+		return d_11;
+	}
+
+	public void setD_11(java.lang.Double d_11) {
+		this.d_11 = d_11;
+	}
+
+	public java.lang.Double getD_12() {
+		return d_12;
+	}
+
+	public void setD_12(java.lang.Double d_12) {
+		this.d_12 = d_12;
+	}
+
+	public java.lang.Double getD_13() {
+		return d_13;
+	}
+
+	public void setD_13(java.lang.Double d_13) {
+		this.d_13 = d_13;
+	}
+
+	public java.lang.Double getD_14() {
+		return d_14;
+	}
+
+	public void setD_14(java.lang.Double d_14) {
+		this.d_14 = d_14;
+	}
+
+	public java.lang.Double getD_21() {
+		return d_21;
+	}
+
+	public void setD_21(java.lang.Double d_21) {
+		this.d_21 = d_21;
+	}
+
+	public java.lang.Double getD_22() {
+		return d_22;
+	}
+
+	public void setD_22(java.lang.Double d_22) {
+		this.d_22 = d_22;
+	}
+
+	public java.lang.Double getD_23() {
+		return d_23;
+	}
+
+	public void setD_23(java.lang.Double d_23) {
+		this.d_23 = d_23;
+	}
+
+	public java.lang.Double getD_24() {
+		return d_24;
+	}
+
+	public void setD_24(java.lang.Double d_24) {
+		this.d_24 = d_24;
+	}
+
+	public java.lang.Double getD_25() {
+		return d_25;
+	}
+
+	public void setD_25(java.lang.Double d_25) {
+		this.d_25 = d_25;
+	}
+
+	public java.lang.Double getD_26() {
+		return d_26;
+	}
+
+	public void setD_26(java.lang.Double d_26) {
+		this.d_26 = d_26;
+	}
+
+	public java.lang.String getAnbonusflag() {
+		return anbonusflag;
+	}
+
+	public void setAnbonusflag(java.lang.String anbonusflag) {
+		this.anbonusflag = anbonusflag;
+	}
+
+	public java.lang.String getWa_data_object_id() {
+		return wa_data_object_id;
+	}
+
+	public void setWa_data_object_id(java.lang.String wa_data_object_id) {
+		this.wa_data_object_id = wa_data_object_id;
+	}
+
+	@Override
+	public String getPKFieldName() {
+		return "pk_wa_data";
+	}
+
+	@Override
+	public String getParentPKFieldName() {
+		return null;
+	}
+
+	@Override
+	public String getTableName() {
+		return "mid_wa_data";
+	}
+
+}

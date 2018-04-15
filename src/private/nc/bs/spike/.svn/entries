@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/private/nc/bs/spike"
+   committed-rev="48"
+   kind="dir"
+   committed-date="2016-12-07T07:01:08.532601Z"/>
+<entry
+   name="impl"
+   kind="dir"/>
+</wc-entries>

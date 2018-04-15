@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://192.168.1.2/svn/fbs"
+   name=""
+   revision="53"
+   last-author="xgd"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/private/nc/bs/export/file"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   committed-rev="36"
+   kind="dir"
+   committed-date="2016-11-28T01:57:45.964023Z"/>
+<entry
+   name="impl"
+   kind="dir"/>
+</wc-entries>

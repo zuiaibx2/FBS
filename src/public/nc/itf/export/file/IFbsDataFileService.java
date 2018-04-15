@@ -1,0 +1,81 @@
+package nc.itf.export.file;
+
+import java.util.List;
+
+import nc.vo.Export.FbsDataFileItemVO;
+import nc.vo.Export.FbsDatafileVO;
+import nc.vo.Export.time.FbsExportTimeVO;
+import nc.vo.pub.BusinessException;
+import nc.vo.pub.SuperVO;
+
+/**
+ * @ClassName: IFbsDataFileService
+ * <b> 抽取DB文件后台处理类 </b>
+ * <p>
+ *     在此处添加此类的描述信息
+ * </p>
+ * 创建日期: 2016年10月13日 上午11:43:10
+ * @Version 
+ */
+public interface IFbsDataFileService {
+	public String insertVOIF(SuperVO vo)  throws BusinessException;
+	
+	public void updateVO(SuperVO vo)  throws BusinessException;
+	
+	public void executeSQLS(String[] sqls) throws BusinessException;
+	
+	/**
+	 * @Title: getSpikeData
+	 * @Description: 根据条件获取中间表数据
+	 * @Author: 王凯强
+	 * @Time: 2016年10月13日 上午11:41:54
+	 * @param clazz
+	 * @param whereStr
+	 * @return
+	 * @throws BusinessException
+	 */
+	public List<SuperVO> getSpikeData(Class<?> clazz, String whereStr) throws BusinessException;
+	
+	public List<SuperVO> getSpikeDataByPage(Class<?> clazz, String whereStr,int i) throws BusinessException ;
+	/**
+	 * @Title: getAllCreateSqls
+	 * @Description: 获取视图文件
+	 * @Author: 王凯强
+	 * @Time: 2016年10月14日 下午1:25:57
+	 * @return
+	 * @throws Exception
+	 */
+	public List<String> getAllCreateSqls() throws BusinessException;
+	/**
+	 * 1.保存日志信息
+	 * 2.保存版本信息
+	 * @param billvo
+	 * @param fbsExportTimeVOs 
+	 * @throws BusinessException
+	 */
+	public void saveLogVO(FbsDatafileVO dataFileVO, FbsDataFileItemVO[] bvos,
+			FbsExportTimeVO[] tvos)throws BusinessException;
+
+	/**
+	 * 按公司合并数据，分开不同的事务
+	 * @param pk_corp 需要合并的公司
+	 * @throws BusinessException
+	 */
+	public void saveLogVO_RequiresNew(List<SuperVO> vos) throws BusinessException;
+	/**
+	 * 获取工具的版本，在文件里面配置，与集团的相对应
+	 * @return
+	 * @throws BusinessException
+	 */
+	public String getToolVersion() throws BusinessException;
+	
+	/**
+	 * 将bd数据插入业务表中，用于下级单位导入
+	 * @param map
+	 * @param versionMap 
+	 * @param dbflag 
+	 * @return 
+	 * @throws BusinessException
+	 */
+	public void insertBusinessData(SuperVO[] vos) throws BusinessException;
+}

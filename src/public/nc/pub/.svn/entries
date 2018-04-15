@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://192.168.1.2/svn/fbs"
+   revision="53"
+   last-author="wkq"
+   uuid="639a4229-b099-ba4f-9bcb-cc948d211cea"
+   url="https://192.168.1.2/svn/fbs/fbsxj/src/fbs/public/nc/pub"
+   committed-rev="3"
+   kind="dir"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="Constants.java"
+   checksum="9ffb69f21fe1d6ead789dc0f988728be"
+   last-author="wkq"
+   text-time="2016-11-16T09:44:20.869000Z"
+   committed-rev="3"
+   kind="file"
+   committed-date="2016-11-16T09:44:20.869667Z"/>
+<entry
+   name="fbs"
+   kind="dir"/>
+</wc-entries>
